@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:51685",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "DockerAPI": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/test/Welcome",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AZURE_CLIENT_SECRET": "",
+        "AZURE_CLIENT_ID": "3f5f12f4-bc2c-45ba-b62e-330309a38621",
+        "ENVIRONMENT_TYPE": "DEV",
+        "ConfigFromLocal": "false",
+        "AppConfigConnectionString": "",
+        "AZURE_TENANT_ID": "d52c9ea1-7c21-47b1-82a3-33a74b1f74b8"
+      },
+      "applicationUrl": "http://localhost:5001"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/test/Welcome",
+      "publishAllPorts": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AZURE_CLIENT_SECRET": "",
+        "AZURE_CLIENT_ID": "3f5f12f4-bc2c-45ba-b62e-330309a38621",
+        "ENVIRONMENT_TYPE": "DEV",
+        "ConfigFromLocal": "false",
+        "AppConfigConnectionString": "",
+        "AZURE_TENANT_ID": "d52c9ea1-7c21-47b1-82a3-33a74b1f74b8"
+      }
+    }
+  }
+}

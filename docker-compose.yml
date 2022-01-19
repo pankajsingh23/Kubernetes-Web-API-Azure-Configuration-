@@ -1,0 +1,67 @@
+version: '3.8'
+
+#docker volume create --name=aksshare
+
+#volumes:
+# aksshare:
+#   external: true
+services:
+  web:
+    # build:
+      # context: .
+      # dockerfile: dockerwebfile
+    #image: dockerweb
+    image: pankajsingh23/dockerweb
+    container_name: dockerwebcontainer
+    #secrets:
+    # - AppConfigConnectionString
+    ports:
+      - "80:80"
+    #volumes:
+    #  - aksshare:/app/config      
+    environment:
+      #- "AppSettings:APIURL:http://dockerapicontainer:81/api/weatherforecast"
+      - ASPNETCORE_ENVIRONMENT=Development
+      - AppConfigConnectionString=
+      - ENVIRONMENT_TYPE=DEV
+      - ConfigFromLocal=false
+      - AZURE_CLIENT_SECRET=
+      - AZURE_CLIENT_ID=3f5f12f4-bc2c-45ba-b62e-330309a38621
+      - AZURE_TENANT_ID=d52c9ea1-7c21-47b1-82a3-33a74b1f74b8
+    links:
+      - api
+  api:
+    # build:
+      # context: .
+      # dockerfile: dockerapifile
+    #image: dockerapi
+    image: pankajsingh23/dockerapi
+    container_name: dockerapicontainer
+    #secrets:
+    #  - AppConfigConnectionString    
+    ports:
+      - "81:80"
+    #volumes:
+    #  - aksshare:/app/config
+      #- "./data:/data:rw"   
+    environment:
+      #- "AppSettings:APIURL:http://dockerapicontainer:81/api/weatherforecast"
+      - ASPNETCORE_ENVIRONMENT=Development
+      - AppConfigConnectionString=
+      - ENVIRONMENT_TYPE=DEV
+      - ConfigFromLocal=false
+      - AZURE_CLIENT_SECRET=
+      - AZURE_CLIENT_ID=3f5f12f4-bc2c-45ba-b62e-330309a38621
+      - AZURE_TENANT_ID=d52c9ea1-7c21-47b1-82a3-33a74b1f74b8      
+
+#secrets:
+  #AppConfigConnectionString:
+    #file: ./AppConfigConnectionString.txt  
+    #external: true
+     
+# volumes:
+  # aksshare:      
+
+
+
+            
